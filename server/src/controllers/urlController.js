@@ -24,7 +24,7 @@ async function handleGenerateNewShortUrl(req, res) {
 }
 
 async function handleRedirectToOrignalUrl(req, res) {
-  const short_id = req.param.short_id;
+  const short_id = req.params.short_id;
   // let date = Date.now();
   const entry = await URL.findOneAndUpdate(
     {
@@ -41,4 +41,17 @@ async function handleRedirectToOrignalUrl(req, res) {
   res.redirect(entry.redirectUrl);
 }
 
-module.exports = { handleGenerateNewShortUrl, handleRedirectToOrignalUrl };
+async function handleGetAnalatics(req, res) {
+  const shortId = req.params.shortId;
+  const result = await URL.findOne({ shortId });
+  return res.json({
+    totalClicks: result.visitHistory.length,
+    analytics: result.visitHistory,
+  });
+}
+
+module.exports = {
+  handleGenerateNewShortUrl,
+  handleRedirectToOrignalUrl,
+  handleGetAnalatics,
+};
