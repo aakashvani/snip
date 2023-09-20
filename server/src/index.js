@@ -5,5 +5,5 @@ app.use(express.json());
 
 const urlRoute = require("./routes/urlRoute");
 
-app.use("/api", urlRoute);
+app.use("/url", urlRoute);
 module.exports = app;

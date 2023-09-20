@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 const urlSchema = new Schema(
   {
-    shortID: {
+    shortId: {
       type: String,
       required: true,
       unique: true,
     },
-    redirectURL: {
+    redirectUrl: {
       type: String,
       required: true,
     },
@@ -16,6 +16,7 @@ const urlSchema = new Schema(
   },
   {
     timestamps: true,
+    versionKey: false,
   }
 );
 
