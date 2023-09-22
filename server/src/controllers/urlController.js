@@ -24,11 +24,10 @@ async function handleGenerateNewShortUrl(req, res) {
 }
 
 async function handleRedirectToOrignalUrl(req, res) {
-  const short_id = req.params.short_id;
-  // let date = Date.now();
+  const shortId = req.params.shortId;
   const entry = await URL.findOneAndUpdate(
     {
-      short_id,
+      shortId,
     },
     {
       $push: {
