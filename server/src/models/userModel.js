@@ -18,12 +18,13 @@ const userSchema = new Schema(
     password: {
       type: String,
       require: [true, "Please enter a strong password"],
-      validate: validator.isPassword,
       minLength: [8, "Password must be at least 8 characters"],
       select: false,
     },
+    resetPasswordToken: String,
+    resetPasswordExpire: Date,
   },
-  { timestamps: true }
+  { timestamps: true, versionKey: false }
 );
 
 module.exports = mongoose.model("User", userSchema);
