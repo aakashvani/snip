@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "autoprefixer": "10.4.15",
+    "bcrypt": "^5.1.1",
+    "mongodb": "^6.1.0",
     "mongoose": "^7.5.3",
     "next": "13.4.19",
     "next-auth": "^4.23.2",
