@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LoginBtn from "./LoginBtn";
 
 const Navbar = () => {
   return (
@@ -7,7 +8,7 @@ const Navbar = () => {
         Snip
       </Link>
       <button className="border-spacing-4 hover:bg-red-400  px-5 py-1 rounded-md">
-        Login
+        <LoginBtn />
       </button>
     </div>
   );
