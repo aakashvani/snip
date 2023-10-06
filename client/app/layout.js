@@ -1,5 +1,5 @@
+import "@/styles/globals.css";
 import Navbar from "@/components/Navbar";
-import "./globals.css";
 import { NextAuthProvider } from "./Providers";
 
 export const metadata = {
@@ -12,7 +12,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <NextAuthProvider>
-          <main className="max-w-3xl mx-auto">
+          <div className="main">
+            <div className="gradient" />
+          </div>
+          <main className="app">
             <Navbar />
             {children}
           </main>

@@ -11,18 +11,21 @@ const Navbar = () => {
   const [toggleDropdown, setToggleDropdown] = useState();
 
   useEffect(() => {
-    const setProviders = async () => {
+    const setUpProviders = async () => {
       const response = await getProviders();
 
       setProviders(response);
     };
 
-    setProviders();
+    setUpProviders();
   }, []);
 
   return (
     <nav className=" flex justify-between w-full mb-16 pt-3 items-center">
-      <Link href="/" className="flex gap-2 flex-center">
+      <Link
+        href="/"
+        className="flex gap-2 flex-center text-3xl font-bold font-Caveat"
+      >
         Snip
       </Link>
 
@@ -30,16 +33,16 @@ const Navbar = () => {
       <div className="sm:flex hidden">
         {session?.user ? (
           <div className="flex items-center  gap-3 md:gap-5">
-            <Link href="/create-url" className="border-black cursor-pointer">
+            <Link href="/" className="black_btn">
               Create Snip
             </Link>
-            <button type="button" onClick={signOut}>
+            <button type="button" onClick={signOut} className="outline_btn">
               Sign Out
             </button>
 
             <Link href="/profile">
               <Image
-                src="https://sialifehospital.com/wp-content/uploads/2021/04/testimonial-1.png"
+                src={session?.user.image}
                 width={37}
                 height={37}
                 className="rounded-full"
@@ -55,6 +58,7 @@ const Navbar = () => {
                   type="button"
                   key={provider.name}
                   onClick={() => signIn(provider.id)}
+                  className="black_btn"
                 >
                   Sign In
                 </button>
@@ -68,7 +72,7 @@ const Navbar = () => {
         {session?.user ? (
           <div className="flex">
             <Image
-              src="https://sialifehospital.com/wp-content/uploads/2021/04/testimonial-1.png"
+              src={session?.user.image}
               width={37}
               height={37}
               className="rounded-full"
@@ -77,15 +81,20 @@ const Navbar = () => {
             />
 
             {toggleDropdown && (
-              <div>
-                <Link href="/profile" onClick={() => setToggleDropdown(false)}>
+              <div className="dropdown">
+                <Link
+                  href="/profile"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropdown(false)}
+                >
                   My Profile
                 </Link>
                 <Link
-                  href="/create-url"
+                  href="/"
+                  className="dropdown_link"
                   onClick={() => setToggleDropdown(false)}
                 >
-                  create url
+                  Create URL
                 </Link>
                 <button
                   type="button"
@@ -93,6 +102,7 @@ const Navbar = () => {
                     setToggleDropdown(false);
                     signOut();
                   }}
+                  className="mt-5 w-full black_btn"
                 >
                   Sign Out
                 </button>
