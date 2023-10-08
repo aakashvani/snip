@@ -1,4 +1,4 @@
-import Form from "@/components/Form";
+import CreatingUrl from "@/components/CreatingUrl";
 import UrlsDisplay from "@/components/UrlsDisplay";
 import React from "react";
 
@@ -11,7 +11,7 @@ const Home = () => {
 
       {/* input for url section*/}
       <main className="container grid grid-row-2 divide-x h-1/2">
-        <Form />
+        <CreatingUrl />
         <UrlsDisplay />
       </main>
     </section>
