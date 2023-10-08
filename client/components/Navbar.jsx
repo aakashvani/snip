@@ -21,7 +21,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className=" flex justify-between w-full mb-16 pt-3 items-center">
+    <nav className="lg:app_container px-4 flex justify-between w-full mb-16 pt-3 items-center">
       <Link
         href="/"
         className="flex gap-2 flex-center text-3xl font-bold font-Caveat"
@@ -33,9 +33,6 @@ const Navbar = () => {
       <div className="sm:flex hidden">
         {session?.user ? (
           <div className="flex items-center  gap-3 md:gap-5">
-            <Link href="/" className="black_btn">
-              Create Snip
-            </Link>
             <button type="button" onClick={signOut} className="outline_btn">
               Sign Out
             </button>
@@ -82,20 +79,6 @@ const Navbar = () => {
 
             {toggleDropdown && (
               <div className="dropdown">
-                <Link
-                  href="/profile"
-                  className="dropdown_link"
-                  onClick={() => setToggleDropdown(false)}
-                >
-                  My Profile
-                </Link>
-                <Link
-                  href="/"
-                  className="dropdown_link"
-                  onClick={() => setToggleDropdown(false)}
-                >
-                  Create URL
-                </Link>
                 <button
                   type="button"
                   onClick={() => {

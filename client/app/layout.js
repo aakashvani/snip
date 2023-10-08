@@ -12,10 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <NextAuthProvider>
-          <div className="main">
-            <div className="gradient" />
-          </div>
-          <main className="app">
+          <main>
             <Navbar />
             {children}
           </main>
