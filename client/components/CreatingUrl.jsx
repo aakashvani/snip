@@ -1,24 +1,29 @@
 "use client";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
+import Form from "./Form";
 
 const CreatingUrl = () => {
   const { data: session } = useSession();
+  const [post, setPost] = useState({
+    url: "",
+  });
 
   // console.log(session?.user.id);
+  const CREATE_URL = "http://localhost:8080/url";
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const userId = session?.user.email;
-    const url = event.target.url.value;
-    console.log("url", url);
 
     try {
-      const response = await fetch("http://localhost:8080/url", {
+      const response = await fetch(CREATE_URL, {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
-          url: url,
-          userId: userId,
+          url: post.url,
+          userId: session?.user.id,
         }),
       });
 
@@ -37,27 +42,12 @@ const CreatingUrl = () => {
   return (
     <>
       <section className="w-full max-w-full flex-start flex-col">
-        <form
-          onSubmit={handleSubmit}
-          className="relative flex justify-center items-center"
-        >
-          <input
-            type="url"
-            placeholder="Enter a URL to shorten"
-            required
-            // onChange={(e) => setUrl(e.target.value)}
-            // value={url}
-            name="url"
-            className="url_input peer"
-            onKeyDown={handleKeyDown}
-          />
-          <button
-            type="submit"
-            className="submit_btn peer-focus:border-gray-700 peer-focus:text-gray-700"
-          >
-            Shorten
-          </button>
-        </form>
+        <Form
+          post={post}
+          setPost={setPost}
+          handleSubmit={handleSubmit}
+          handleKeyDown={handleKeyDown}
+        />
       </section>
     </>
   );
