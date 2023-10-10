@@ -2,37 +2,41 @@ import React from "react";
 
 const UrlsDisplay = () => {
   return (
-    <section>
-      <table>
-        <thead className="  w-full text-xs text-gray-700 uppercase bg-gray-50">
-          <tr>
-            <th scope="col" className="px-6 py-3">
-              Action
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Short Url
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Clicks
-            </th>
-          </tr>
-        </thead>
+    <section className="flex justify-center mt-2">
+      <div className="w-full sm:w-3/4 md:w-1/2 lg:w-2/3 xl:w-1/2 bg-white p-4 rounded-lg shadow-md max-h-screen overflow-y-auto">
+        <table className="w-full">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 text-center">
+            <tr>
+              <th scope="col" className="px-6 py-3">
+                Action
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Short Url
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Clicks
+              </th>
+            </tr>
+          </thead>
 
-        <tbody>
-          <tr className="bg-white border-b">
-            <td className="px-6 py-4">
-              <a
-                href="#"
-                className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >
-                Copy!!
-              </a>
-            </td>
-            <td className="px-6 py-4 ">Silver</td>
-            <td className="px-6 py-4">Laptop</td>
-          </tr>
-        </tbody>
-      </table>
+          <tbody className="text-center">
+            <tr className="bg-white border-b">
+              <td className="px-6 py-4">
+                <a
+                  href="#"
+                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                >
+                  Copy!!
+                </a>
+              </td>
+              <td className="px-6 py-4">Silver</td>
+              <td className="px-6 py-4">Laptop</td>
+            </tr>
+
+            {/* Add more table rows here */}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 };

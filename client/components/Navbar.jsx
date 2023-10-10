@@ -20,7 +20,7 @@ const Navbar = () => {
     setUpProviders();
   }, []);
 
-  console.log(session?.user.email)
+  console.log("Welcome!!! ",session?.user.name)
   return (
     <nav className="lg:app_container px-4 flex justify-between w-full mb-16 pt-3 items-center">
       <Link

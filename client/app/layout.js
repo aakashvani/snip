@@ -1,6 +1,8 @@
 import "@/styles/globals.css";
 import Navbar from "@/components/Navbar";
 import { NextAuthProvider } from "./Providers";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata = {
   title: "Snip",
@@ -15,6 +17,11 @@ export default function RootLayout({ children }) {
           <main>
             <Navbar />
             {children}
+            <ToastContainer
+              position="bottom-right"
+              autoClose={3000}
+              theme="dark"
+            />
           </main>
         </NextAuthProvider>
       </body>

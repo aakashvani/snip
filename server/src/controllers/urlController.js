@@ -16,6 +16,7 @@ exports.handleGenerateNewShortUrl = catchAsyncErrors(async (req, res, next) => {
     shortId: shortID,
     redirectUrl: body.url,
     visitHistory: [],
+    userId: body.userId,
   });
 
   return res.status(201).json({

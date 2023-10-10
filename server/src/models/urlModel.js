@@ -14,8 +14,9 @@ const urlSchema = new Schema(
     },
     visitHistory: [{ timestamp: { type: Number } }],
     userId: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
+      type: String,
+      // type: Schema.Types.ObjectId,
+      // ref: "User",
     },
   },
   {
