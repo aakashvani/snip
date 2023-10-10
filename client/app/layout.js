@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       <body>
         <NextAuthProvider>
           <main>
-            <Navbar />
+            <Navbar  />
             {children}
             <ToastContainer
               position="bottom-right"

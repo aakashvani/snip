@@ -22,7 +22,7 @@ const Navbar = () => {
 
   console.log("Welcome!!! ",session?.user.name)
   return (
-    <nav className="lg:app_container px-4 flex justify-between w-full mb-16 pt-3 items-center">
+    <nav className=" px-10 lg:px-32 flex justify-between w-full mb-16 pt-3 items-center">
       <Link
         href="/"
         className="flex gap-2 flex-center text-3xl font-bold font-Caveat"
