@@ -24,7 +24,7 @@ font-family: 'Caveat', cursive; */
 }
 
 .desc {
-  @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
+  @apply max-w-2xl mt-5 text-lg text-gray-600 sm:text-xl;
 }
 
 .search_input {
@@ -40,12 +40,12 @@ font-family: 'Caveat', cursive; */
 }
 
 .prompt_layout {
-  @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
+  @apply py-8 space-y-6 sm:columns-2 sm:gap-6 xl:columns-3;
 }
 
 /* Feed Component */
 .feed {
-  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
+  @apply flex flex-col items-center justify-center w-full max-w-xl gap-2 mx-auto mt-16;
 }
 
 /* Form Component */
@@ -54,12 +54,12 @@ font-family: 'Caveat', cursive; */
 }
 
 .form_input {
-  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+  @apply flex w-full p-3 mt-2 text-sm text-gray-500 rounded-lg outline-0;
 }
 
 /* Nav Component */
 .logo_text {
-  @apply max-sm:hidden font-Caveat font-semibold text-lg text-black tracking-wide;
+  @apply text-lg font-semibold tracking-wide text-black max-sm:hidden font-Caveat;
 }
 
 .dropdown {
@@ -67,7 +67,7 @@ font-family: 'Caveat', cursive; */
 }
 
 .dropdown_link {
-  @apply text-sm font-Poppins text-gray-700 hover:text-gray-500 font-medium;
+  @apply text-sm font-medium text-gray-700 font-Poppins hover:text-gray-500;
 }
 
 /* PromptCard Component */
@@ -76,17 +76,17 @@ font-family: 'Caveat', cursive; */
 }
 
 .flex-center {
-  @apply flex justify-center items-center;
+  @apply flex items-center justify-center;
 }
 
 .flex-start {
-  @apply flex justify-start items-start;
+  @apply flex items-start justify-start;
 }
 
 .flex-end {
-  @apply flex justify-end items-center;
+  @apply flex items-center justify-end;
 }
 
 .flex-between {
-  @apply flex justify-between items-center;
+  @apply flex items-center justify-between;
 }

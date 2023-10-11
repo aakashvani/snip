@@ -58,10 +58,10 @@ const CreatingUrl = () => {
 
   return (
     <>
-      <section className="w-full max-w-full flex items-center justify-center">
+      <section className="flex items-center justify-center w-full max-w-full">
         <form
           onSubmit={handleSubmit}
-          className="w-full max-w-md bg-white p-4 rounded-lg shadow-md flex"
+          className="flex w-full max-w-md p-4 bg-white rounded-lg shadow-md"
         >
           <input
             value={post.url}
@@ -69,12 +69,12 @@ const CreatingUrl = () => {
             onChange={(e) => setPost({ ...post, url: e.target.value })}
             placeholder="URL"
             required
-            className="form_input flex-grow mr-2 p-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:border-blue-400"
+            className="flex-grow p-2 mr-2 border border-gray-300 rounded-md form_input focus:outline-none focus:ring focus:border-blue-400"
             onKeyDown={handleKeyDown}
           />
           <button
             type="submit"
-            className="bg-blue-400 text-white px-5 py-1 rounded-md hover:bg-blue-500 transition duration-300"
+            className="px-5 py-1 text-white transition duration-300 bg-blue-400 rounded-md hover:bg-blue-500"
           >
             Enter
           </button>

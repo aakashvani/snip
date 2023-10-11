@@ -20,20 +20,20 @@ const Navbar = () => {
     setUpProviders();
   }, []);
 
-  console.log("Welcome!!! ",session?.user.name)
+  console.log("Welcome!!! ", session?.user.name);
   return (
-    <nav className=" px-10 lg:px-32 flex justify-between w-full mb-16 pt-3 items-center">
+    <nav className="flex items-center justify-between w-full px-10 pt-3 mb-16  lg:px-32">
       <Link
         href="/"
-        className="flex gap-2 flex-center text-3xl font-bold font-Caveat"
+        className="flex gap-2 text-3xl font-bold flex-center font-Caveat"
       >
         Snip
       </Link>
 
       {/* Desktop navigation */}
-      <div className="sm:flex hidden">
+      <div className="hidden sm:flex">
         {session?.user ? (
-          <div className="flex items-center  gap-3 md:gap-5">
+          <div className="flex items-center gap-3 md:gap-5">
             <button type="button" onClick={signOut} className="outline_btn">
               Sign Out
             </button>
@@ -66,7 +66,7 @@ const Navbar = () => {
       </div>
 
       {/* mobile navigation */}
-      <div className="sm:hidden flex relative">
+      <div className="relative flex sm:hidden">
         {session?.user ? (
           <div className="flex">
             <Image
@@ -86,7 +86,7 @@ const Navbar = () => {
                     setToggleDropdown(false);
                     signOut();
                   }}
-                  className="mt-5 w-full black_btn"
+                  className="w-full mt-5 black_btn"
                 >
                   Sign Out
                 </button>

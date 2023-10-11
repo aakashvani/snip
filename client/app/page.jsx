@@ -4,9 +4,9 @@ import React from "react";
 
 const Home = () => {
   return (
-    <section className="w-full flex flex-center flex-col">
-      <h1 className="text-center font-bold text-2xl mb-2">
-        Shortern any Url here!!!
+    <section className="flex flex-col w-full flex-center">
+      <h1 className="mb-2 text-2xl font-bold text-center">
+        Shorten any Url here!!!
       </h1>
 
       {/* input for url section*/}
