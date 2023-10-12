@@ -26,7 +26,7 @@ exports.handleGenerateNewShortUrl = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-exports.handleRedirectToOrignalUrl = catchAsyncErrors(
+exports.handleRedirectToOriginalUrl = catchAsyncErrors(
   async (req, res, next) => {
     const shortId = req.params.shortId;
     const entry = await URL.findOneAndUpdate(
@@ -45,7 +45,7 @@ exports.handleRedirectToOrignalUrl = catchAsyncErrors(
   }
 );
 
-exports.handleGetAnalatics = catchAsyncErrors(async (req, res, next) => {
+exports.handleGetAnalytics = catchAsyncErrors(async (req, res, next) => {
   const shortId = req.params.shortId;
   const result = await URL.findOne({ shortId });
   return res.json({
@@ -53,3 +53,24 @@ exports.handleGetAnalatics = catchAsyncErrors(async (req, res, next) => {
     analytics: result.visitHistory,
   });
 });
+
+exports.handleGetAllUrlMadeByUserId = catchAsyncErrors(
+  async (req, res, next) => {
+    const userId = req.params.id;
+
+    if (!userId) {
+      return next(new ErrorHandler("Not found user", 401));
+    }
+
+    const userUrls = await URL.find({ userId: userId });
+
+    if (!userUrls) {
+      return next(new ErrorHandler("Not found any data", 401));
+    }
+
+    res.status(200).json({
+      success: true,
+      urls: userUrls,
+    });
+  }
+);

@@ -1,6 +1,10 @@
-import React from "react";
+import axios from "axios";
 
 const UrlsDisplay = () => {
+  const getUrl = "http://localhost:8080/url/all-urls";
+
+  
+
   return (
     <section className="flex justify-center mt-2">
       <div className="w-full max-h-screen p-4 overflow-y-auto bg-white rounded-lg shadow-md sm:w-3/4 md:w-10/12 lg:w-2/3 xl:w-1/2">
