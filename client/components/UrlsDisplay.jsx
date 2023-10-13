@@ -1,9 +1,58 @@
+"use client";
 import axios from "axios";
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 const UrlsDisplay = () => {
-  const getUrl = "http://localhost:8080/url/all-urls";
+  const [url, setUrl] = useState([]);
+  const [len, setLen] = useState(0);
+  const [copiedLink, setCopiedLink] = useState(null);
 
-  
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const { data: session } = useSession();
+  let userId = session?.user.id;
+  const getUrl = `http://localhost:8080/url/all-urls/${userId}`;
+
+  useEffect(() => {
+    (async () => {
+      try {
+        setLoading(true);
+        setError(false);
+        const response = await axios.get(getUrl);
+        setUrl(response.data.urls);
+        console.log(response?.data?.urls.length);
+        setLen(response?.data?.urls.length);
+        setLoading(false);
+      } catch (error) {
+        setError(true);
+        setLoading(false);
+        console.log("error:", error);
+      }
+    })();
+  }, [len]);
+
+  const handleCopyLink = (link) => {
+    // Create a temporary input element to copy the link
+    const input = document.createElement("input");
+    input.value = link;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand("copy");
+    document.body.removeChild(input);
+
+    // Set the copiedLink state to show a message
+    setCopiedLink(link);
+  };
+
+  if (error) {
+    return <p className="p-2 m-auto text-center">🧐 Something went wrong 🧐</p>;
+  }
+
+  if (loading) {
+    return <h1 className="p-2 m-auto text-center">Loading...</h1>;
+  }
 
   return (
     <section className="flex justify-center mt-2">
@@ -18,26 +67,39 @@ const UrlsDisplay = () => {
                 Short Url
               </th>
               <th scope="col" className="px-6 py-3">
+                Real Link
+              </th>
+              <th scope="col" className="px-6 py-3">
                 Clicks
               </th>
             </tr>
           </thead>
 
           <tbody className="text-center">
-            <tr className="bg-white border-b">
-              <td className="px-6 py-4">
-                <a
-                  href="#"
-                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >
-                  Copy!!
-                </a>
-              </td>
-              <td className="px-6 py-4">Silver</td>
-              <td className="px-6 py-4">Laptop</td>
-            </tr>
-
-            {/* Add more table rows here */}
+            {url.map((item) => (
+              <tr key={item._id}>
+                <td>
+                  <button
+                    onClick={() =>
+                      handleCopyLink(`http://localhost:8080/${item.shortId}`)
+                    }
+                  >
+                    Copy
+                  </button>
+                </td>
+                <td>
+                  <a
+                    href={`http://localhost:8080/url/${item.shortId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {`http://localhost:8080/url/${item.shortId}`}
+                  </a>
+                </td>
+                <td>{item.redirectUrl}</td>
+                <td>{item.visitHistory.length}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
