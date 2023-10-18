@@ -1,15 +1,26 @@
 "use client";
 import { useContext, useState } from "react";
-import { Context } from "@/app/page";
+import { ContextGet } from "@/app/page";
 
 const UrlsDisplay = () => {
-  const { urlData } = useContext(Context);
+  const { urlData } = useContext(ContextGet);
 
   // console.log(urlData);
 
   const [copiedLink, setCopiedLink] = useState(null);
 
   const handleCopyLink = (link) => {
+    // Create an input element to hold the URL
+    const input = document.createElement("input");
+    input.value = link;
+    document.body.appendChild(input);
+
+    // Select the input content and copy to clipboard
+    input.select();
+    document.execCommand("copy");
+
+    // Remove the input element
+    document.body.removeChild(input);
     setCopiedLink(link);
   };
 

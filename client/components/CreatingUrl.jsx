@@ -1,15 +1,21 @@
-"use client";
 import { useState } from "react";
-import { useSession } from "next-auth/react";
-import axios from "axios";
 import { toast } from "react-toastify";
+import axios from "axios";
+import { useSession } from "next-auth/react";
 
-const CreatingUrl = () => {
-  const { data: session } = useSession();
+
+
+const CreatingUrl = ({onNameChange}) => {
+// const CreatingUrl = () => {
+// post req start --------->
   const [post, setPost] = useState({
-    title:"",
+    title: "",
     url: "",
   });
+  const [xyz, setXyz] = useState("");
+  const { data: session } = useSession();
+
+
 
   const CREATE_URL = "http://localhost:8080/url";
 
@@ -45,6 +51,8 @@ const CreatingUrl = () => {
       .then((res) => {
         altetSucesses();
         console.log("res:", res.data.message);
+        // setXyz()
+        onNameChange(xyz)
       })
       .catch((error) => {
         altetError();
@@ -57,6 +65,8 @@ const CreatingUrl = () => {
       handleSubmit(e);
     }
   };
+
+  // post req end ------------>
 
   return (
     <>
