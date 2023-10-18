@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 const urlSchema = new Schema(
   {
+    title: {
+      type: String,
+      required: true,
+    },
     shortId: {
       type: String,
       required: true,

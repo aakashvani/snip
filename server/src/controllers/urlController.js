@@ -6,13 +6,14 @@ const URL = require("../models/urlModel");
 exports.handleGenerateNewShortUrl = catchAsyncErrors(async (req, res, next) => {
   const body = req.body;
 
-  if (!body.url) {
-    return next(new ErrorHandler("url is required", 400));
+  if (!body.url && !body.title) {
+    return next(new ErrorHandler("url or title is required", 400));
   }
 
   const shortID = shortid();
 
   const newURL = await URL.create({
+    title: body.title,
     shortId: shortID,
     redirectUrl: body.url,
     visitHistory: [],
