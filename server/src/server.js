@@ -2,7 +2,7 @@ const app = require('./index')
 const connectDB = require('./config/database')
 require('dotenv').config()
 
-const PORT = process.env.PORT || 8001;
+const PORT = process.env.PORT || 8001, "0.0.0.0";
 
 // Handled Uncaught Exception
 process.on('uncaughtException', (err) => {
