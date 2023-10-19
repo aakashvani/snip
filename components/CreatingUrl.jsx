@@ -17,7 +17,8 @@ const CreatingUrl = ({onNameChange}) => {
 
 
 
-  const CREATE_URL = "http://localhost:8080/url";
+  // const CREATE_URL = "http://localhost:8080/url";
+  const CREATE_URL = "https://snip-server-production.up.railway.app/url";
 
   const altetSucesses = async () => {
     toast.success("Short URl is generated 🎉", {

@@ -31,7 +31,8 @@ const UrlsDisplay = () => {
           <p className="">{title}</p>
           <p className=" text-blue-500 italic">
             <a
-              href={`http://localhost:8080/url/${shortId}`}
+              // href={`http://localhost:8080/url/${shortId}`}
+              href={`https://snip-server-production.up.railway.app/url/${shortId}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -46,7 +47,10 @@ const UrlsDisplay = () => {
             <button
               className="bg-slate-400 px-4 py-2 rounded-md"
               onClick={() =>
-                handleCopyLink(`http://localhost:8080/url/${shortId}`)
+                // handleCopyLink(`http://localhost:8080/url/${shortId}`)
+                handleCopyLink(
+                  `https://snip-server-production.up.railway.app/url/${shortId}`
+                )
               }
             >
               Copy

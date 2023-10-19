@@ -14,7 +14,8 @@ const Home = () => {
   const { data: session } = useSession();
   let userId = session?.user.id;
   // console.log(userId);
-  const getUrl = `http://localhost:8080/url/all-urls/${userId}`;
+  // const getUrl = `http://localhost:8080/url/all-urls/${userId}`;
+  const getUrl = `https://snip-server-production.up.railway.app/url/all-urls/${userId}`;
 
   const onNameChange1 = () => {
     setCount(count + 1);
