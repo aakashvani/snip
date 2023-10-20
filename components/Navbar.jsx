@@ -22,7 +22,7 @@ const Navbar = () => {
 
   console.log("Welcome!!! ", session?.user.name);
   return (
-    <nav className="flex items-center justify-between w-full px-10 pt-3 mb-16  lg:px-32">
+    <nav className="flex items-center justify-between w-full px-10 pt-3 mb-16 lg:px-32">
       <Link
         href="/"
         className="flex gap-2 text-3xl font-bold flex-center font-Caveat"

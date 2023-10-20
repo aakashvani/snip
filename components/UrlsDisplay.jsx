@@ -25,11 +25,11 @@ const UrlsDisplay = () => {
   };
 
   return (
-    <section className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 font-Poppins">
+    <section className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3 lg:grid-cols-4 font-Poppins">
       {urlData?.map(({ _id, title, shortId, visitHistory }) => (
-        <div key={_id} className="shadow-md rounded-lg">
+        <div key={_id} className="rounded-lg shadow-md">
           <p className="">{title}</p>
-          <p className=" text-blue-500 italic">
+          <p className="italic text-blue-500 ">
             <a
               // href={`http://localhost:8080/url/${shortId}`}
               href={`https://snip-server-production.up.railway.app/url/${shortId}`}
@@ -39,13 +39,13 @@ const UrlsDisplay = () => {
               {`${title}/${shortId}`}
             </a>
           </p>
-          <div className="flex  justify-around p-3">
-            <div className=" bg-slate-400 px-4 py-2 rounded-md">
+          <div className="flex justify-around p-3">
+            <div className="px-4 py-2 rounded-md  bg-slate-400">
               <p>{visitHistory.length} Clicks</p>
             </div>
 
             <button
-              className="bg-slate-400 px-4 py-2 rounded-md"
+              className="px-4 py-2 rounded-md bg-slate-400"
               onClick={() =>
                 // handleCopyLink(`http://localhost:8080/url/${shortId}`)
                 handleCopyLink(

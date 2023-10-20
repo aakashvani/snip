@@ -3,19 +3,15 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 
-
-
-const CreatingUrl = ({onNameChange}) => {
-// const CreatingUrl = () => {
-// post req start --------->
+const CreatingUrl = ({ onNameChange }) => {
+  // const CreatingUrl = () => {
+  // post req start --------->
   const [post, setPost] = useState({
     title: "",
     url: "",
   });
   const [xyz, setXyz] = useState("");
   const { data: session } = useSession();
-
-
 
   // const CREATE_URL = "http://localhost:8080/url";
   const CREATE_URL = "https://snip-server-production.up.railway.app/url";
@@ -53,7 +49,7 @@ const CreatingUrl = ({onNameChange}) => {
         altetSucesses();
         console.log("res:", res.data.message);
         // setXyz()
-        onNameChange(xyz)
+        onNameChange(xyz);
       })
       .catch((error) => {
         altetError();
@@ -71,10 +67,10 @@ const CreatingUrl = ({onNameChange}) => {
 
   return (
     <>
-      <section className=" flex items-center justify-center w-full ">
+      <section className="flex items-center justify-center w-full ">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-4 w-full max-w-md p-4 bg-white rounded-lg shadow-md"
+          className="flex flex-col w-full max-w-md gap-4 p-4 bg-white rounded-lg shadow-md"
         >
           <input
             value={post.title}
@@ -82,7 +78,7 @@ const CreatingUrl = ({onNameChange}) => {
             onChange={(e) => setPost({ ...post, title: e.target.value })}
             placeholder="Title"
             required
-            className="  mr-2 border border-gray-300 rounded-md form_input focus:outline-none focus:ring focus:border-blue-400"
+            className="mr-2 border border-gray-300 rounded-md form_input focus:outline-none focus:ring focus:border-blue-400"
             onKeyDown={handleKeyDown}
           />
           <input

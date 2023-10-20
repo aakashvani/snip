@@ -1,11 +1,8 @@
-
 # Snip - A url shortener application
 
 SNIP is a frontend for a URL shortener application. It's built using Next.js and TailwindCSS.js. Users can submit a title and URL to create short links. Hosted on Vercel.
 
 [Snip Backend Repo ↗](https://github.com/aakashvani/snip-server.git)
-
-
 
 ## Tech Stack
 
@@ -16,8 +13,6 @@ SNIP is a frontend for a URL shortener application. It's built using Next.js and
 **Database:** MongoDB
 
 **Highlight:** Used SSR, CSR, NextAuth (Google)
-
-
 
 ## Run Locally
 
@@ -38,7 +33,3 @@ Start the server
 ```bash
   npm run start
 ```
-
-
-
-

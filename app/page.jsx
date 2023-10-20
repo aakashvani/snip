@@ -43,7 +43,7 @@ const Home = () => {
         </h1>
 
         {/* input for url section*/}
-        <main className="container flex flex-col justify-center items-center lg:flex w-full gap-5">
+        <main className="container flex flex-col items-center justify-center w-full gap-5 lg:flex">
           <div className="w-full p-2">
             <CreatingUrl onNameChange={onNameChange1} />
             {/* <CreatingUrl  /> */}
